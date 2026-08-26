@@ -1,9 +1,42 @@
 <?php
+    session_start();
+
+    if(isset($_SESSION['current_user'])) {
+        header('Location: index.php');
+        exit;
+    }
+
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'] ?? '';
         $password = $_POST['password'] ?? '';
 
+        if(empty($username) || empty($password)) {
+            $_SESSION['error'] = "All fields are required!";
+        }
+        else {
+            $found = false;
 
+            if(isset($_SESSION['users']) && is_array($_SESSION['users'])) {
+                foreach($_SESSION['users'] as $key => $value) {
+                    if($username === $value['username'] && $password === $value['password']) {
+                        $_SESSION['current_user'] = $value;
+                        $found = true;
+                        break;
+                    }
+                }
+            }
+
+            if($found) {
+                unset($_SESSION['error']);
+                header("Location: index.php");
+                exit;
+            } else {
+                $_SESSION['error'] = "Invalid username or password!";
+            }
+        }
+
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
     }
 ?>
 
@@ -17,6 +50,13 @@
 </head>
 <body>
     <main>
+        <?php
+            if(isset($_SESSION['error'])) {
+                echo "<section><p>" . htmlspecialchars($_SESSION['error']) . "</p></section>";
+                unset($_SESSION['error']);
+            }
+        ?>
+
         <h2>Welcome Back User!</h2>
 
         <form action="login.php" method="POST">

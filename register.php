@@ -84,7 +84,7 @@
             </div>
 
             <div id="form-footer">
-                <p>Don't have an account yet? <a href="register.php">Register</a></p>
+                <p>Already have an account? <a href="login.php">Login</a></p>
                 <button type="submit">Login</button>
             </div>
         </form>
