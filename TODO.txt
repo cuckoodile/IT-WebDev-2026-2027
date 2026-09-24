@@ -1,0 +1,5 @@
+Overview:
+Create a simple single paged web game that displays 10 boxes using a .map on an Array of boxes. Each box is unique (they have their own unique useState) but they all share the same functionality via custom component.
+
+Instruction:
+When you click a box, change the color of that selected box to the next color of your choice, the colors rotates infinitely.
