@@ -41,7 +41,7 @@ Push
 1. Check if you are in the project terminal path (See if your terminal is in your project)
 ----
 > PROJECT REPO SETUP
-1. Create a PRIVATE repository
+1. Create a PRIVATE repository named "{last_name} 2026-2027"
 2. Invite me via "Collaborators" (cuckoodiles)
 3. Copy report git URL (the one that ends on ".git")
 ----
@@ -49,7 +49,7 @@ Push
 1. git remote  add origin {URL}
 2. git add .
 3. git commit -m "{message...}"
-4. git branch -m main
+4. git branch -m session_7
 5. git push -u origin main
 
 ----
