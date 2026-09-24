@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Box from "./components/Box";
 
 const boxes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export default function App() {
+  useEffect(() => {
+    // Code Block
+    console.log("Hello World!")
+
+    /* useEffect Trigger Timing
+      1. onMount
+      2. onUpdate
+    */
+  }, [/* Dependency Array */])
+
+
   // Create a variable of array containing at least 4 colors
   // const colors = ['red', 'yellow', 'blue', 'orange']
   // const colorClasses = {

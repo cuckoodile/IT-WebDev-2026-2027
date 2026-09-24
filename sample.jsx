@@ -29,3 +29,14 @@ export default function Box({num}) {
     </div>
   )
 }
+
+
+export default function sample() {
+    /* useEffect Trigger Timings
+    1. onMount
+    */
+
+    return (
+        <div>Hello</div>
+    )
+}

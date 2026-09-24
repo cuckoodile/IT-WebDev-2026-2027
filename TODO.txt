@@ -46,11 +46,12 @@ Push
 3. Copy report git URL (the one that ends on ".git")
 ----
 > PUSH
-1. git remote  add origin {URL}
-2. git add .
-3. git commit -m "{message...}"
-4. git branch -m session_7
-5. git push -u origin main
+1. git init
+2. git remote  add origin {URL}
+3. git add .
+4. git commit -m "{message...}"
+5. git branch -m session_7
+6. git push -u origin session_7
 
 ----
 > Activity
