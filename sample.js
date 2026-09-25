@@ -1,67 +1,55 @@
-// const containerDiv = document.getElementById('container')
+/* Spreader Operator
+    Syntax: ...arr or ...obj
+    
+    Definition: allows you to expand or unpack an iterable—such as an array, an object, or a string—into individual elements
+*/
 
-// // const cardDiv = User input
+let students = ["del rosario", "oronce", "aguirre", "nalog"];
+// console.log(`Students: ${students}`);
 
-// containerDiv.append
+let newStudents = ["ian", "marod", "dustin"];
+// console.log(`New students: ${newStudents}`);
 
-// ========= Mutation ========= 
+// How to add the new students in our array: 'students' ??
+/* Mutation
+    Definition: the act of changing or modifying the internal state or data structure of an object, array, or variable after it has been created
+
+    In simple term: When we are changing the value of an existing collection.
+*/
+students.push(newStudents);
+// console.log(`All Students: ${students}`);
+
+/* Value Recreation
+    > We are going to re-create the object (state) from scratch.
+    1. We must keep the original value of our state
+*/
+
+let teacher = { name: "Ian", age: 99, gender: "Male" };
+// console.log(teacher);
+
+// teacher = { age: 100, ...teacher };
+// console.log(teacher);
+
+// How do we get a specific OBJ attribute?
+let fern = [
+  {
+    first_name: "Ian",
+    last_name: "Sube",
+    age: 99,
+    profile: "profile",
+  },
+  {
+    first_name: "Fern",
+    last_name: "No",
+    age: 21,
+    profile: "fern",
+  },
+];
+
 /*
-    Process of updating or modifying the current data.
-*/
-// let students = ['pam', 'toni', 'de guzman', 'talavera']
-// console.log(students)
-
-// students.push('diaz', 'villadarez')
-// console.log(students)
-
-
-// ========= Data Re-creation ========= 
-// let students = ['pam', 'toni', 'de guzman', 'talavera']
-// console.log(students)
-
-// let newStudents = ['diaz', 'villadarez']
-// console.log(newStudents)
-
-// Using Spread Operator, we can copy the value of an existing array
-// Syntax: ...Array
-// newStudents = [...newStudents, ...students]
-// console.log(newStudents)
-
-// In React, we cannot mutate a useState value, therefore we re-create the useState from scratch while passing it's original previous value.
-
-// ========= Objects and Arrays =========
-// Object (Key Value pair): Curly bracket {}
-// Syntax: {Key: Value, ...}
-
-// Array (List): Square bracket []
-// Syntax: [val1, val2, val3, ...]
-
-
-let teacher = {name: 'Ian', age: 99}
-
-// console.log(teacher)
-
-// Get the teacher's name only. (Two ways to get an attribute using key)
-// console.log(teacher.name)
-// console.log(teacher['name'])
-
-// Add an attribute "last_name" with a value of "Sube" (Two methods: "." and "[]")
-teacher.last_name = "sube"
-teacher['last_name'] = 'Sube'
-
-/* in PHP
-teacher['last_name'] = 'Sube'
+1. Object index position
+2. Object key (first_name: "Fern")
 */
 
-// console.log(teacher)
-
-// Update or modify an Object, Update the value of name (Ian) = 'Lhourde'
-teacher.name = 'Lhourde'
-teacher['name'] = 'Lhourde'
-console.log(teacher)
-
-// name: "Lhourde", last_name: "Sube"
-
-// Delete the key: 'name'
-delete teacher.name
-console.log(teacher)
+// console.log(`First Name: ${fern[1]}`);
+console.log(fern[1].first_name);
