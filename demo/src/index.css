@@ -4,4 +4,8 @@ button {
   cursor: pointer;
   padding: 5px 8px;
   border-radius: 7px;
+
+  /* y not? */
+  /* border: solid white 1px;
+  background-color: red; */
 }
