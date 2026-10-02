@@ -19,7 +19,12 @@ counter > 0 ? (setCounter(counter - 1)) : stop
 */
 
 export default function App() {
-  const [users, setUsers]
+  const [users, setUsers] = useState([
+    {
+      username: "Frieren",
+      age: 1000,
+    },
+  ]);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -28,16 +33,19 @@ export default function App() {
   // formData.username
   // formData.age
 
-  useEffect(() => {
-    const timeId = setTimeout(() => {
-      console.log(formData);
-    }, 1500);
+  // useEffect(() => {
+  //   const timeId = setTimeout(() => {
+  //     console.log(formData);
+  //   }, 1500);
 
-    return () => clearTimeout(timeId);
-  }, [formData]);
+  //   return () => clearTimeout(timeId);
+  // }, [formData]);
 
   function handleFormSubmit() {
     alert(JSON.stringify(formData));
+    setUsers([...users, {formData}]);
+
+    alert(JSON.stringify(users));
   }
 
   function handleInputChange(e) {
