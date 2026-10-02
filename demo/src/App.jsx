@@ -52,9 +52,13 @@ export default function App() {
 
       {/* <Card user={users[0]} /> */}
 
-      {users.map((user) => (
-        <Card user={user} />
-      ))}
+      {users.length > 0 ? (
+        users.map((user) => (
+          <Card user={user} setUsers={setUsers} users={users} />
+        ))
+      ) : (
+        <p>No Users</p>
+      )}
     </main>
   );
 }
