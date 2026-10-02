@@ -6,3 +6,7 @@ button {
   border-radius: 7px;
   padding: .3rem .5rem;
 }
+
+input {
+  border: solid 1px;
+}
