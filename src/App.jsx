@@ -24,7 +24,9 @@ export default function App() {
           {/* <button onClick={() => nav('/')}>Login</button> */}
           <button onClick={() => setLoginVisible(true)}>Login</button>
           <button onClick={() => nav("/dashboard")}>Dashboard</button>
-          <button onClick={() => nav("/dashboard/profile/2")}>Profile</button>
+          <button onClick={() => nav("/dashboard/profile/1")}>Frieren</button>
+          <button onClick={() => nav("/dashboard/profile/2")}>Fern</button>
+          <button onClick={() => nav("/dashboard/profile/3")}>Stark</button>
         </nav>
       </header>
 
