@@ -1,1 +1,14 @@
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Ink:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Ink:wght@100..900&family=Bitcount+Single:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+
+body {
+  font-family: "Bitcount Single", system-ui;
+}
+
+button {
+  cursor: pointer;
+  font-family: "Bitcount Ink";
+}
