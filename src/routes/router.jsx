@@ -19,8 +19,9 @@ export const routes = createBrowserRouter([
             element: <Dashboard /> 
         },
         {
-            path: "profile",
-            element: <Profile />
+            path: "profile/:pk",
+            // <int:pk>/
+            element: <Profile />,
         }
     ]
   }
