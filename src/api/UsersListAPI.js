@@ -1,10 +1,7 @@
 // ModelMethodAPI.js
-import { BASE_URL } from "./config.js";
+import { BASE_URL, ACCESS_TOKEN } from "./config.js";
 
-const ACCESS_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkyMTE0ODkxLCJpYXQiOjE3OTIxMTMwOTEsImp0aSI6ImZkZWVlNGVjMDcxNDQxODJhOGUyNGFkNTFkMGE1ZmQwIiwidXNlcl9pZCI6IjEifQ.DJeQRbj8tp73iQBXXLmmLCidmcEOqU_gVTXtnE8rImk";
-
-async function LoginAPI() {
+export async function LoginAPI() {
   const res = await fetch(`${BASE_URL}/token/`, {
     method: "POST",
     headers: {
@@ -14,6 +11,7 @@ async function LoginAPI() {
       username: "user01",
       password: "Password123!",
     }),
+    // body: JSON.stringify(),
   });
 
   let data = await res.json();
@@ -26,8 +24,35 @@ async function LoginAPI() {
   return data;
 }
 
-async function UsersListAPI(token, id = null) {
+export async function ProductsListAPI(token, id = null) {
+  console.log(`${BASE_URL}/users/${id ? id + "/" : ""}`);
+
+  // const res = fetch(`http://127.0.0.1:8000/api/products/`)
+  // const res = fetch(`http://127.0.0.1:8000/api/products/{id}/`)
+
+  //   res var. will represent the fetched JSON from the backend(Django)
   const res = await fetch(`${BASE_URL}/users/${id ? id + "/" : ""}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  //   Will represent the converted JSON data(res) to JS data
+  const data = await res.json();
+
+  //   res.ok if fetched data status 200 - 299
+  if (!res.ok) {
+    return data.detail || "Product list failed";
+  }
+
+  console.log("Product list: ", data);
+  return data;
+}
+
+export async function UsersListAPI(token) {
+  const res = await fetch(`${BASE_URL}/users/`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -38,7 +63,7 @@ async function UsersListAPI(token, id = null) {
   const data = await res.json();
 
   if (!res.ok) {
-    return data.detail || "Login failed!";
+    throw new Error(data.detail || "Failed to fetch users");
   }
 
   return data;
@@ -50,10 +75,10 @@ async function UsersListAPI(token, id = null) {
 // console.log(users);
 
 try {
-  const token = await LoginAPI();
-  const users = await UsersListAPI(token.access);
+  let users = await ProductsListAPI(ACCESS_TOKEN, 2);
+  //   let users = await LoginAPI();
 
-  console.log(users);
+  //   console.log(users);
 } catch (error) {
   throw new Error(error.message);
 }
